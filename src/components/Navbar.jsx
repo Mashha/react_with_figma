@@ -9,7 +9,7 @@ function Navbar() {
     <Nav>
       <Container>
         <LogoIcon />
-        <Burger>
+        <Burger onClick={() => setIsOpen(!isOpen)}>
           <span></span>
           <span></span>
           <span></span>
@@ -79,6 +79,12 @@ box-shadow: -4px 8px 18px 1 rgba(0,0,0,0.7);
 max-height: ${({ isOpen }) => (isOpen ? "300px" : "0px")};
 width: 100%;
 transition: max-height 0.3s ease-in;
+
+background-color: rgba(255, 255, 255, 0.9);
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    -webkit-backdrop-filter: blur(35px);
+    backdrop-filter: blur(35px);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 `;
@@ -121,11 +127,6 @@ const Button = styled.button`
   &:hover {
     box-shadow: 0px 17px 16px -11px #ecb6d7;
     transform: translateY(-5px);
-  }
-
-  @media (max-width: 670px) {
-    /* width: 100%; */
-    padding: 0.3rem;
   }
 `;
 const Burger = styled.div`
